@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oech/widgets/text_field_widget.dart';
+import 'package:oech/pages/signUp_page.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -37,11 +38,8 @@ class _LoginPageState extends State<LoginPage> {
                 )),
                 
                 SizedBox(height: 18),
-
-                
-
-
-                  TextFieldWidget(
+                TextFieldWidget(
+                 controller: _emailController.text,
                   textTitle: 'Email Address',
                    textTitleColor: Color.fromRGBO(167, 167, 167, 1),
                     textSize: 14,
@@ -50,6 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                      ),  
 
                   TextFieldWidget(
+                    controller: _passwordController.text,
                   textTitle: 'Password',
                    textTitleColor: Color.fromRGBO(167, 167, 167, 1),
                     textSize: 14,

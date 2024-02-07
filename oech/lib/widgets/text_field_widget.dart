@@ -1,32 +1,27 @@
 import 'package:flutter/material.dart';
 
 class TextFieldWidget extends StatelessWidget {
-  // final TextEditingController controller;
   final String textTitle;
   final String hintText;
   final bool isObsText;
   final Color textTitleColor;
   final double textSize;
-  final int height;
-  // final Icon icon;
   final TextInputType inputType;
 
   const TextFieldWidget(
       {super.key,
-      // required this.controller,
       required this.textTitle,
       required this.hintText,
       required this.textTitleColor,
       required this.textSize,
-      required this.height,
-      // required this.icon,
       this.isObsText = false,
-      this.inputType = TextInputType.text});
+      this.inputType = TextInputType.text,});
 
+//TEXT WIDGET
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 79,
+    return SizedBox(
+      height: 85,
       width: 342,
       child: Column(
         children: <Widget>[
@@ -48,7 +43,7 @@ class TextFieldWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          Container(
+          SizedBox(
             height: 44,
             width: 342,
             child: TextFormField(
@@ -59,7 +54,8 @@ class TextFieldWidget extends StatelessWidget {
               cursorColor: const Color.fromRGBO(167, 167, 167, 1),
               obscureText: isObsText,
               keyboardType: inputType,
-              decoration:  InputDecoration(
+              decoration: InputDecoration(
+                floatingLabelBehavior: FloatingLabelBehavior.never,
                 border: InputBorder.none,
                 fillColor: Colors.transparent,
                 enabledBorder: const OutlineInputBorder(
@@ -72,11 +68,13 @@ class TextFieldWidget extends StatelessWidget {
                 focusedBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(4)),
                   borderSide: BorderSide(
-                      color: Color.fromRGBO(167, 167, 167, 1), width: 1,),
+                    color: Color.fromRGBO(167, 167, 167, 1),
+                    width: 1,
+                  ),
                 ),
                 hintStyle: const TextStyle(color: Colors.transparent),
                 hintText: hintText,
-                labelText: hintText,  
+                labelText: hintText,
                 labelStyle: const TextStyle(
                     fontSize: 14,
                     color: Color.fromRGBO(207, 207, 207, 1),
@@ -90,3 +88,60 @@ class TextFieldWidget extends StatelessWidget {
     );
   }
 }
+
+//PASSWORD WIDGET
+class PasswordField extends StatelessWidget {
+  final TextEditingController passwordController;
+  final String textTitle;
+  final String hintText;
+  final bool showPassword;
+  final Color textTitleColor;
+  final double textSize;
+  final int height;
+  final TextInputType inputType;
+
+  const PasswordField(
+      {super.key,
+      required this.passwordController,
+      required this.textTitle,
+      required this.hintText,
+      required this.textTitleColor,
+      required this.textSize,
+      required this.height,
+      this.showPassword = false,
+      this.inputType = TextInputType.text});
+
+  void showPasswordUser() {
+    if (showPassword) {
+    } else {}
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: TextFormField(
+        controller: passwordController,
+        obscureText: showPassword,
+        cursorColor: Colors.red,
+        style: const TextStyle(color: Colors.white),
+        decoration: InputDecoration(
+          hintText: "Password",
+          border: InputBorder.none,
+          suffixIcon: GestureDetector(
+            onTap: () {
+              showPasswordUser();
+            },
+            child: Icon(
+              showPassword ? Icons.visibility : Icons.visibility_off,
+              color: Colors.red,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
