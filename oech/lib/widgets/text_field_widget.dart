@@ -15,7 +15,7 @@ class TextFieldWidget extends StatelessWidget {
       required this.textTitleColor,
       required this.textSize,
       this.isObsText = false,
-      this.inputType = TextInputType.text,});
+      this.inputType = TextInputType.text, required TextEditingController controller,});
 
 //TEXT WIDGET
   @override

@@ -21,7 +21,7 @@ class ButtonWidget extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(4),
-            color: buttonColor,
+           // color: buttonColor,
           ),
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(
@@ -30,7 +30,7 @@ class ButtonWidget extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-                color: Color.fromRGBO(255, 255, 255, 1),
+               color: Color.fromRGBO(255, 255, 255, 1),
               ),
             ),
           ]),
